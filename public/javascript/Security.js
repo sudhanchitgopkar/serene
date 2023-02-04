@@ -8,7 +8,7 @@ const Security = class {
         this.ticker = ticker;
         this.numberOfShares = numberOfShares;
         this.type = type;
-        this.prices = this.parsePrices(this.queryPriceHistory(ticker));
+        this.prices = type === "equity" ? this.parsePrices(this.queryPriceHistory(ticker)): -1;
     }
 
     // get the most recent price
