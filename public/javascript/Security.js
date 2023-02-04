@@ -16,19 +16,18 @@ const Security = class {
         return this.prices[this.prices.length - 1];
     } // getPrice()*/
 
-    // the volatility of the security
-    calculateVolatilty() {
-        unitsOfTime;
+    // the volatility (std deviation) of the security as a percent of its mean price
+    calculateVolatilty(unitsOfTimeBack) {
         meanPrice = meanPrice(unitsOfTimeBack);
         sumOfSquareOfDifferences = 0;
         for (unitOfTime = 0; unitOfTime < unitsOfTimeBack; unitOfTime++) {
-            difference = dailyPrices[dailyPrices.length - 1 - unitsOfTime] - meanPrice;
+            difference = dailyPrices[dailyPrices.length - 1 - unitOfTime] - meanPrice;
             square = difference * difference;
             sumOfSquareOfDifferences += square;
         } // for month
-        variance = sumOfSquareOfDifferences / unitsOfTime;
+        variance = sumOfSquareOfDifferences / unitsOfTimeBack;
         stdDeviation = Math.sqrt(variance);
-        return stdDeviation;
+        return stdDeviation / meanPrice;
     } // calculateVolatility()
 
     // find the mean price of the stock going so many unitsOfTimeBack
