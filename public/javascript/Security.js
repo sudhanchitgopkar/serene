@@ -17,7 +17,8 @@ const Security = class {
     } // getPrice()*/
 
     // the volatility (std deviation) of the security as a percent of its mean price
-    calculateVolatilty(unitsOfTimeBack) {
+    calculateVolatilty() {
+        unitsOfTimeBack = 21; // 21 trading days is typical for historical volatility
         meanPrice = meanPrice(unitsOfTimeBack);
         sumOfSquareOfDifferences = 0;
         for (unitOfTime = 0; unitOfTime < unitsOfTimeBack; unitOfTime++) {
