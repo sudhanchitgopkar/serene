@@ -17,7 +17,7 @@ class User{
     }
 
     /**
-     * @param {any} holdings
+     * @param {Holding []} holdings
      */
     setHoldings(holdings) {
         this.holdings = holdings;
