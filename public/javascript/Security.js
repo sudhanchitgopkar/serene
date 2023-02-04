@@ -41,11 +41,10 @@ const Security = class {
     // returns the price information from Alpha Vantage in a json
     queryPriceHistory(ticker) {
         console.groupCollapsed("Anything")
-        let symbol = "META";
         let apikey = "8GJ0ZCRX0UGW3NPC";
 
         let url = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED"
-        url += "&symbol=" + symbol;
+        url += "&symbol=" + ticker;
         url += "&datatype=" + "json";
         url += "&apikey=" + apikey;
 
