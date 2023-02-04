@@ -1,5 +1,4 @@
 class User{
-    
     holdings;
     accounts;
 
@@ -8,11 +7,11 @@ class User{
         this.setAccounts(accounts);
     }
 
-    get holdings() {
+    getHoldings() {
         return this.holdings;
     }
 
-    get accounts() {
+    getAccounts() {
         return this.accounts;
     }
 
