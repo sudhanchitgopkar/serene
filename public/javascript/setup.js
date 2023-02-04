@@ -1,5 +1,5 @@
 jsonData = null;
-
+let usr = new User([],[]);
 (async ($) => {
     // Grab a Link token to initialize Link
     const createLinkToken = async () => {
@@ -65,7 +65,30 @@ jsonData = null;
   };
   getStatus();
 
+
+
   function analyze() {
-    console.log("IS THIS WORKING")
-    console.log(jsonData);
+    const holdings = jsonData["Balance"]["holdings"]
+    const securities = jsonData["Balance"]["securities"];
+    for (var holding in holdings) {
+      const id = holdings[holding]["security_id"];
+      const qty = holdings[holding]["quantity"];
+      var ticker;
+      var type;
+
+      for (var security in securities) {
+        if (id == securities[security]["security_id"]) {
+          ticker = securities[security]["ticker_symbol"];
+          type = securities[security]["type"];
+        } //if
+      } //for
+
+      const currSecurity = new Security(ticker, qty, type);
+      usr.addHolding(currSecurity);
+    } //holdings
+
+    console.log(usr.getHoldings());
+    //console.log("IS THIS WORKING")
+    //console.log(jsonData);
   }
+  
