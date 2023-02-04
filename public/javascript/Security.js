@@ -2,10 +2,12 @@ const Security = class {
     ticker;
     numberOfShares;
     prices;
+    type;
 
-    constructor(ticker, numberOfShares) {
+    constructor(ticker, numberOfShares, type) {
         this.ticker = ticker;
         this.numberOfShares = numberOfShares;
+        this.type = type;
         this.prices = this.parsePrices(this.queryPriceHistory(ticker));
     }
 
