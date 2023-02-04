@@ -1,3 +1,5 @@
+jsonData = null;
+
 (async ($) => {
     // Grab a Link token to initialize Link
     const createLinkToken = async () => {
@@ -43,8 +45,10 @@
       method: "GET",
     });
     const data = await response.json();
-    console.log(data);
+    //console.log(data);
 
+    jsonData = data
+    analyze();
     //Render response data
     const pre = document.getElementById("response");
     pre.textContent = JSON.stringify(data, null, 2);
@@ -59,5 +63,9 @@
       getBalance();
     }
   };
-
   getStatus();
+
+  function analyze() {
+    console.log("IS THIS WORKING")
+    console.log(jsonData);
+  }
