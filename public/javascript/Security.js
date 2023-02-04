@@ -1,18 +1,18 @@
 const Security = class {
     ticker;
     numberOfShares;
-    prices[];
+    prices;
 
     constructor(ticker, numberOfShares) {
         this.ticker = ticker;
         this.numberOfShares = numberOfShares;
-        this.prices = parsePrices(queryPriceHistory(ticker));
+        this.prices = this.parsePrices(this.queryPriceHistory(ticker));
     }
 
     // get the most recent price
-    getPrice() {
-        return prices[prices.length - 1];
-    } // getPrice()
+    /*getPrice() {
+        return this.prices[this.prices.length - 1];
+    } // getPrice()*/
 
     // the volatility of the security
     calculateVolatilty() {
@@ -40,6 +40,7 @@ const Security = class {
     
     // returns the price information from Alpha Vantage in a json
     queryPriceHistory(ticker) {
+        console.groupCollapsed("Anything")
         let symbol = "META";
         let apikey = "8GJ0ZCRX0UGW3NPC";
 
@@ -57,14 +58,14 @@ const Security = class {
                 json = data;
             },
         });
+        console.log(json);
         return json;
-        //console.log(json);
     } // queryPriceHistory()
 
     // returns the daily prices in an array made from a json
     parsePrices(json) {
-        var metadata = convert(json["Meta Data"]);
-        var tickerStats = convert(json["Time Series (Daily)"]);
-        tickerStats.forEach(unitOfTime => prices.push(unitOfTime["5. Adjusted Close"]));
+        //var metadata = convert(json["Meta Data"]);
+        //var tickerStats = convert(json["Time Series (Daily)"]);
+        //tickerStats.forEach(unitOfTime => prices.push(unitOfTime["5. Adjusted Close"]));
     } // paresPrices()
 };
