@@ -30,4 +30,19 @@ class User{
         this.accounts = accounts;
     }
 
+    /**
+     * @param {any} holding
+     */
+    addHolding(holding) {
+        this.holdings.push(holding);
+    }
+
+    /**
+     * @param {any} account
+     */
+    addAccount(account) {
+        this.accounts.push(account);
+    }
+
+
 }
