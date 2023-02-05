@@ -21,6 +21,8 @@
         .assets {
             grid-column-start: 1;
             grid-column-end: 3;
+			margin-left: 5%;
+			margin-right: 5%;
         }
         
         h4 {
@@ -30,6 +32,9 @@
         #chartContainer {
             height: 60%;
             overflow: auto;
+			background-color: transparent;
+			border-radius: 20px;
+
         }
         
         #btns {
@@ -90,9 +95,10 @@
 
                     var stockChart = new CanvasJS.StockChart("chartContainer", {
                         animationEnabled: true,
-                        theme: "dark4",
+						theme:"dark2",
+						backgroundColor:"rgba(225,255,255,0.1)",
                         title: {
-                            text: "StockChart Title"
+                            text:myObject["holdings"].at(0)["ticker"],
                         },
                         charts: [{
                             data: [{
