@@ -5,6 +5,8 @@ const Security = class {
     price;
     volatility;
 
+    priceHistory;
+
     // constructor
     constructor(ticker, numberOfShares, type) {
         this.ticker = ticker;
@@ -72,6 +74,7 @@ const Security = class {
                 json = data;
             },
         });
+        priceHistory = json;
         // console.log(json); // debug
         //console.log("size of json: " + json.size); // debug
         return json;
