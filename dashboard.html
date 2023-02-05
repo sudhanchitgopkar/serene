@@ -33,8 +33,8 @@
         }
         
         h4 {
-            padding: 10px;
-            font-family: Manrope;
+            padding: 20px;
+            font-family: Unbounded;
             font-size: 36px;
             color: white;
         }
@@ -88,6 +88,33 @@
             justify-content: center;
             align-items: center;
             transform: translateX(40px) translateY(-60px);
+        }
+        
+        table {
+            margin-top: 30px;
+            border: solid white;
+            table-layout: fixed;
+            width: 15vw;
+        }
+        
+        input {
+            margin-top: 350px;
+            position: fixed;
+        }
+        
+        #advice {
+            font-family: Manrope;
+            font-weight: bold;
+            font-size: 16px;
+            font-weight: 300px;
+            color: white;
+            display: flex;
+            justify-content: center;
+        }
+        
+        #title {
+            font-weight: 600px;
+            font-size: 24pt;
         }
     </style>
 
@@ -162,6 +189,57 @@
         </div>
         <div class="advice">
             <h4>Advice</h4>
+            <div id="advice">
+                <table id="risky" style="float: left">
+                    <tr>
+                        <th id="title">High Volatility</th>
+                    </tr>
+                    <tr>
+                        <td id="hvadvice"></td>
+                    </tr>
+                    <tr>
+                        <td id="hv0"></td>
+                    </tr>
+                    <tr>
+                        <td id="hv1"></td>
+                    </tr>
+                    <tr>
+                        <td id="hv2"></td>
+                    </tr>
+                    <tr>
+                        <td id="hv3"></td>
+                    </tr>
+                    <tr>
+                        <td id="hv4"></td>
+                    </tr>
+                </table>
+                <table id="safe" style="float: right">
+                    <tr>
+                        <th id="title">Low Volatility</th>
+                    </tr>
+                    <tr>
+                        <td id="lvadvice"></td>
+                    </tr>
+                    <tr>
+                        <td id="lv0"></td>
+                    </tr>
+                    <tr>
+                        <td id="lv1"></td>
+                    </tr>
+                    <tr>
+                        <td id="lv2"></td>
+                    </tr>
+                    <tr>
+                        <td id="lv3"></td>
+                    </tr>
+                    <tr>
+                        <td id="lv4"></td>
+                    </tr>
+                </table>
+                <input type="range" orient="vertical" id="riskAverseness" min="1" max="10" value="7" step=".1">
+            </div>
+            <script type="text/javascript" src="/javascript/advice.js">
+            </script>
         </div>
         <div class="assets">
             <h4>Assets</h4>
