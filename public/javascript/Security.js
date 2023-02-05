@@ -74,7 +74,7 @@ const Security = class {
                 json = data;
             },
         });
-        var priceHistory = json;
+        this.priceHistory = json;
         // console.log(json); // debug
         //console.log("size of json: " + json.size); // debug
         return json;
