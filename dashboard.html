@@ -28,8 +28,8 @@
         .assets {
             grid-column-start: 1;
             grid-column-end: 3;
-			margin-left: 5%;
-			margin-right: 5%;
+            margin-left: 5%;
+            margin-right: 5%;
         }
         
         h4 {
@@ -42,9 +42,8 @@
         #chartContainer {
             height: 60%;
             overflow: auto;
-			background-color: transparent;
-			border-radius: 20px;
-
+            background-color: transparent;
+            border-radius: 20px;
         }
         
         #btns {
@@ -92,6 +91,50 @@
     <div class="container ">
         <div class="portfolio">
             <h4>Portoflio</h4>
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <script type="text/javascript">
+                google.charts.load('current', {
+                    'packages': ['corechart']
+                });
+                google.charts.setOnLoadCallback(drawChart);
+
+                function drawChart() {
+
+                    arr = [
+                        ['Asset', 'Percentage of Portfolio']
+                    ];
+                    for (let i = 0; i < myObject["holdings"].length; i++) {
+                        temp = ['', 0];
+                        temp[0] = myObject["holdings"][i]["ticker"];
+                        temp[1] = myObject["holdings"][i]["price"] * myObject["holdings"][i]["numberOfShares"];
+                        arr.push(temp);
+                    }
+                    console.log(arr)
+
+                    var data = google.visualization.arrayToDataTable(arr);
+
+                    var options = {
+                        title: 'INVESTMENTS BY TYPE',
+                        titleTextStyle: {
+                            color: 'White',
+                            fontSize: 30
+                        },
+                        backgroundColor: 'transparent',
+                        legend: {
+                            textStyle: {
+                                color: 'white',
+                                fontSize: 16
+                            }
+                        }
+                    };
+
+                    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                    console.log(document.getElementById('piechart'));
+
+                    chart.draw(data, options);
+                }
+            </script>
+            <div id="piechart" style="width: 900px; height: 500px;"></div>
         </div>
         <div class="advice">
             <h4>Advice</h4>
@@ -109,10 +152,10 @@
 
                     var stockChart = new CanvasJS.StockChart("chartContainer", {
                         animationEnabled: true,
-						theme:"dark2",
-						backgroundColor:"rgba(225,255,255,0.01)",
+                        theme: "dark2",
+                        backgroundColor: "rgba(225,255,255,0.01)",
                         title: {
-                            text:myObject["holdings"].at(0)["ticker"],
+                            text: myObject["holdings"].at(0)["ticker"],
                         },
                         charts: [{
                             data: [{
