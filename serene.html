@@ -1,26 +1,55 @@
 <!DOCTYPE html>
 
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="serene.css"/>
+    <link rel="stylesheet" href="serene.css" />
     <script src="serena.js"></script>
     <title>serene</title>
-  </head>
-  <body>
-    <section class="fwh-slide">
-      <div class="title" id="title">
-	<h1>Serene</h1>
-	<h2>invest in your peace of mind</h2>
-	<a href="#about"><div class="arrowb"></div></a>
-      </div>
+
+    <link rel="stylesheet" type="text/css" href="serene.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+    <script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="/javascript/Security.js">
+    </script>
+    <script type="text/javascript" src="/javascript/User.js">
+    </script>
+    <script type="text/javascript" src="/javascript/Account.js">
+    </script>
+    <script type="text/javascript" src="/javascript/test.js">
+    </script>
+    <script type="text/javascript" src="./javascript/setup.js"></script>
+</head>
+
+<body>
+    <section class="fwh-slide" id="title">
+        <div>
+            <h1>Serene</h1>
+            <h2>invest in your peace of mind</h2>
+            <a href="#login" class="floating">
+                <div class="arrowb floating"></div>
+            </a>
+        </div>
     </section>
-    <section class="fwh-slide">
-      <div class="about" id="about">
-	<h2 class="about">What is Serene?</h2>
-	<p class="about"><emph>Serene</emph> is a tool to help novice investors mitigate their risk without all the hassle. By tracking trends in market volatility across different sectors, our dashboard presents you with an overview of your current assets and makes portfolio recommendations to help insulate your from finanical uncertainty.</p>
-	<a href="login.html"><div class="arrowr"></div></a>
-      </div>
-  </body>  
+    <section class="fwh-slide" id="about">
+        <div>
+            <h2 class="about ">What is Serene?</h2>
+            <p class="about ">
+                <emph>Serene</emph> is a tool to help novice investors mitigate their risk without all the hassle. By tracking trends in market volatility across different sectors, our dashboard presents you with an overview of your current assets and makes
+                portfolio recommendations to help insulate your from finanical uncertainty.</p>
+        </div>
+    </section>
+    <section class="fwh-slide" id="login">
+        <div>
+            <h1>Welcome to Serene</h1>
+            <h2>
+                <a type="button" id="link-account">Login</a>
+            </h2>
+        </div>
+    </section>
+</body>
+
 </html>
