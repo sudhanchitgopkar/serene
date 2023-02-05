@@ -23,6 +23,33 @@
     <title>dashboard</title>
   </head>
   <body>
+
+
+
+      <div>
+          <table id="risky" style="float: left">
+              <tr><th>High Volatility</th></tr>
+              <tr><td id="hvadvice"></td></tr>
+              <tr><td id="hv0"></td></tr>
+              <tr><td id="hv1"></td></tr>
+              <tr><td id="hv2"></td></tr>
+              <tr><td id="hv3"></td></tr>
+              <tr><td id="hv4"></td></tr>
+          </table>
+          <table id="safe" style="float: right">
+              <tr><th>Low Volatility</th></tr>
+              <tr><td id="lvadvice"></td></tr>
+              <tr><td id="lv0"></td></tr>
+              <tr><td id="lv1"></td></tr>
+              <tr><td id="lv2"></td></tr>
+              <tr><td id="lv3"></td></tr>
+              <tr><td id="lv4"></td></tr>
+          </table>
+          <input type="range" orient="vertical" id="riskAverseness" min="1" max="10" value="7" step=".1">
+      </div>
+      <script type="text/javascript" src="/javascript/advice.js"> </script>
+
+
     <header>
       <nav class="nav-container">
 	<div class="nav-mobile">
