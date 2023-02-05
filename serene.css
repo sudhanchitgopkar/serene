@@ -25,7 +25,6 @@
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center center;
-        text-align: center;
     }
     
     .fwh-slide {
@@ -38,6 +37,7 @@
         overflow-y: scroll;
         scroll-snap-type: y mandatory;
         scroll-snap-align: start;
+        text-align: center;
     }
     
     h1 {
@@ -90,20 +90,6 @@
         color: white;
         width: 100vh;
         padding: 25px;
-    }
-    
-    .nav-container {
-        padding: 50px;
-        text-align: left;
-    }
-    
-    li {
-        font-family: Manrope;
-        font-size: 24pt;
-        font-weight: 600;
-        color: white;
-        margin: 30px;
-        display: inline;
     }
     
     a:link {

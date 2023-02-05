@@ -1,48 +1,143 @@
 <!DOCTYPE html>
 
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="serene.css"/>
 
-	<link rel="stylesheet" type="text/css" href="serene.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
-    <script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script type="text/javascript" src="/javascript/Security.js"> </script>
-    <script type="text/javascript" src="/javascript/User.js"> </script>
-    <script type="text/javascript" src="/javascript/Account.js"> </script>
-	<script type="text/javascript" src="/javascript/test.js"> </script>
+    <style>
+        .container {
+            height: 100vh;
+            font-family: Manrope;
+            color: white;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .assets {
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+        
+        #chartContainer {
+            min-width: 50%;
+            max-height: 50%;
+            margin-left: 20%;
+            float: left;
+        }
+        
+        #btns {
+            float: left;
+        }
+        
+        #btn {
+            background-color: #4CAF50;
+            /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-decoration: none;
+            align-items: flex-end;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+    </style>
 
-	<script>
-		var myObject = JSON.parse(localStorage.getItem('exampleObject'));
-		console.log(myObject);
-	</script>
+    <link rel="stylesheet " type="text/css " href="serene.css " />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js "></script>
+    <script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js "></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js "></script>
+    <script type="text/javascript " src="/javascript/Security.js ">
+    </script>
+    <script type="text/javascript " src="/javascript/User.js ">
+    </script>
+    <script type="text/javascript " src="/javascript/Account.js ">
+    </script>
+    <script type="text/javascript " src="/javascript/test.js ">
+    </script>
 
-    <title>dashboard</title>
-  </head>
-  <body>
-    <header>
-      <nav class="nav-container">
-	<div class="nav-mobile">
-	  <ul class="list">
-	    <li class="list-item">
-	      <a href"" class="list-link">Your Investments</a>
-	    </li>
-	    <li class="list-item">
-	      <a href"" class="list-link">Market Trends</a>
-	    </li>
-	    <li class="list-item">
-	      <a href"" class="list-link"></a>
-	    </li>
-	  </ul>
-	</div>
-      </nav>
-	  <p id="demo"></p>
+    <!--<script>
+            var myObject = JSON.parse(localStorage.getItem('exampleObject'));
+            console.log(myObject);
+        </script>-->
 
-	  <script>
-		document.getElementById("demo").innerHTML = localStorage.getItem('exampleObject');
-		</script>
-  </body>
+    <title>Dashboard | Serene</title>
+</head>
+
+<body>
+    <div class="container ">
+        <div class="portfolio">Portfolio</div>
+        <div class="advice">Advice</div>
+        <div class="assets">
+            <h4>Assets</h4>
+            <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+            <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.stock.min.js"></script>
+            <script>
+                var myObject = JSON.parse(localStorage.getItem('exampleObject'));
+                console.log(myObject);
+
+                window.onload = function() {
+                    var dataPoints = [];
+
+                    var stockChart = new CanvasJS.StockChart("chartContainer", {
+                        animationEnabled: true,
+                        theme: "dark4",
+                        title: {
+                            text: "StockChart Title"
+                        },
+                        charts: [{
+                            data: [{
+                                type: "line", //Change it to "spline", "area", "column"
+                                dataPoints: dataPoints
+                            }]
+                        }],
+                        navigator: {
+                            slider: {
+                                minimum: new Date(),
+                                maximum: new Date()
+                            }
+                        }
+                    });
+
+                    $.getJSON("https://canvasjs.com/data/docs/btcusd2018.json", function(data) {
+                        var myObject = JSON.parse(localStorage.getItem('exampleObject'));
+                        const pHist = myObject["holdings"].at(1)["priceHistory"]["Time Series (Daily)"];
+                        for (var p in pHist) {
+                            console.log(p);
+                            console.log(pHist[p]["3. low"]);
+                            dataPoints.push({
+                                x: new Date(p),
+                                y: pHist[p]["3. low"] * 1000
+                            });
+                        }
+                        stockChart.render();
+                    });
+                }
+            </script>
+
+            <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+            <div id="chartContainer"></div>
+            <div id="btns"></div>
+            <script>
+                var myObject = JSON.parse(localStorage.getItem('exampleObject'));
+                for (var v in myObject["holdings"]) {
+                    if (myObject["holdings"][v]["volatility"] > 0)
+                        document.getElementById('btns').innerHTML += "<btn id = \"btn\">" + myObject["holdings"][v]["ticker"] +
+                        "</btn><br>";
+                }
+            </script>
+        </div>
+    </div>
+    <!--<p id="demo ">
+            </p>
+
+        <script>
+            document.getElementById("demo ").innerHTML = localStorage.getItem('exampleObject');
+        </script>-->
+</body>
+
 </html>
