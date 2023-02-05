@@ -84,7 +84,9 @@ let usr = new User([],[]);
       } //for
 
       const currSecurity = new Security(ticker, qty, type);
-      usr.addHolding(currSecurity);
+      if (currSecurity.ticker != null && currSecurity.price != undefined) {
+        usr.addHolding(currSecurity);
+      } // if
     } //holdings
 
     console.log(usr.getHoldings()); // debug
