@@ -2,7 +2,7 @@ class User{
     holdings;
     accounts;
     // the square of 10 - risk aversness is the threshold
-    volatilityThreshold = Math.pow(10 - 7, 2);
+    volatilityThreshold = this.getVolatilityThreshold(7);
 
     constructor(holdings, accounts) {
         this.setHoldings(holdings);
@@ -24,6 +24,11 @@ class User{
         } // for holding
         return volatileHoldings;
     } // getOverlyVolatileHoldings()
+
+    // finds the threshold of volatility based on the risk averseness
+    getVolatilityThreshold(riskAverseness) {
+        return Math.pow(11 - riskAverseness, 2)
+    } // getVolatility()
 
     getHoldings() {
         return this.holdings;
