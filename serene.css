@@ -1,118 +1,114 @@
-    @font-face {
-        font-family: Unbounded;
-        src: url("fonts/Unbounded/Unbounded-VariableFont_wght.ttf");
-    }
-    
-    @font-face {
-        font-family: Manrope;
-        src: url("fonts/Manrope/Manrope-VariableFont_wght.ttf");
-    }
-    
-    * {
-        margin: 0;
-        padding: 0;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-    }
-    
-    html {
-        scroll-behavior: smooth;
-    }
-    
-    body {
-        background-image: url("assets/bg2.png");
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center center;
-    }
-    
-    .fwh-slide {
-        position: relative;
-        height: 100vh;
-        width: 100vw;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow-y: scroll;
-        scroll-snap-type: y mandatory;
-        scroll-snap-align: start;
-        text-align: center;
-    }
-    
-    h1 {
-        font-family: Unbounded;
-        font-size: 72pt;
-        color: white;
-    }
-    
-    h2 {
-        font-family: Manrope;
-        font-size: 24pt;
-        font-weight: 300;
-        color: white;
-    }
-    
-    h2.about {
-        font-family: Unbounded;
-        font-size: 30pt;
-        font-weight: bold;
-    }
-    
-    .arrowb {
-        position: fixed;
-        bottom: 100px;
-        height: 3vw;
-        width: 3vw;
-        border: solid white;
-        border-width: 0 1px 1px 0;
-    }
-    
-    .arrow:hover {
-        border-bottom-width: 4px;
-        border-right-width: 4px;
-    }
-    
-    .floating {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-decoration: none;
-        position: fixed;
-        bottom: 100px;
-    }
-    
-    p.about {
-        font-family: Manrope;
-        font-size: 20pt;
-        font-weight: 300;
-        line-height: 1.5;
-        color: white;
-        width: 100vh;
-        padding: 25px;
-    }
-    
-    a:link {
-        text-decoration: none;
-        font-weight: 600;
-        color: white;
-        cursor: pointer;
-    }
-    
-    a:visited {
-        color: rgba(255, 255, 255, 1);
-    }
-    
-    a:hover {
-        font-weight: 700;
-        color: rgba(255, 255, 255, 0.7);
-    }
-    
-    a:active {
-        font-weight: 700;
-        color: rgba(255, 255, 255, 1);
-    }
-    
-    #link-account {
-        transform: translate(50%, 550%);
-    }
+                                            @font-face {
+                                                font-family: Unbounded;
+                                                src: url("fonts/Unbounded/Unbounded-VariableFont_wght.ttf");
+                                            }
+                                            
+                                            @font-face {
+                                                font-family: Manrope;
+                                                src: url("fonts/Manrope/Manrope-VariableFont_wght.ttf");
+                                            }
+                                            
+                                            * {
+                                                margin: 0;
+                                                padding: 0;
+                                                -moz-box-sizing: border-box;
+                                                box-sizing: border-box;
+                                            }
+                                            
+                                            html {
+                                                scroll-behavior: smooth;
+                                            }
+                                            
+                                            body {
+                                                background-image: url("assets/bg2.png");
+                                                background-attachment: fixed;
+                                                background-repeat: no-repeat;
+                                                background-size: cover;
+                                                background-position: center center;
+                                            }
+                                            
+                                            .fwh-slide {
+                                                position: relative;
+                                                height: 100vh;
+                                                width: 100vw;
+                                                display: flex;
+                                                justify-content: center;
+                                                align-items: center;
+                                                overflow-y: scroll;
+                                                scroll-snap-type: y mandatory;
+                                                scroll-snap-align: start;
+                                                text-align: center;
+                                            }
+                                            
+                                            h1 {
+                                                font-family: Unbounded;
+                                                font-size: 72pt;
+                                                color: white;
+                                            }
+                                            
+                                            h2 {
+                                                font-family: Manrope;
+                                                font-size: 24pt;
+                                                font-weight: 300;
+                                                color: white;
+                                            }
+                                            
+                                            h2.about {
+                                                font-family: Unbounded;
+                                                font-size: 30pt;
+                                                font-weight: bold;
+                                            }
+                                            
+                                            .arrowb {
+                                                position: fixed;
+                                                bottom: 100px;
+                                                height: 3vw;
+                                                width: 3vw;
+                                                border: solid white;
+                                                border-width: 0 1px 1px 0;
+                                            }
+                                            
+                                            .arrow:hover {
+                                                border-bottom-width: 4px;
+                                                border-right-width: 4px;
+                                            }
+                                            
+                                            .floating {
+                                                display: flex;
+                                                justify-content: center;
+                                                align-items: center;
+                                                text-decoration: none;
+                                                position: fixed;
+                                                bottom: 100px;
+                                            }
+                                            
+                                            p.about {
+                                                font-family: Manrope;
+                                                font-size: 20pt;
+                                                font-weight: 300;
+                                                line-height: 1.5;
+                                                color: white;
+                                                width: 100vh;
+                                                padding: 25px;
+                                            }
+                                            
+                                            a:link {
+                                                text-decoration: none;
+                                                font-weight: 600;
+                                                color: white;
+                                                cursor: pointer;
+                                            }
+                                            
+                                            a:visited {
+                                                color: rgba(255, 255, 255, 1);
+                                            }
+                                            
+                                            a:hover {
+                                                font-weight: 700;
+                                                color: rgba(255, 255, 255, 0.7);
+                                            }
+                                            
+                                            a:active {
+                                                font-weight: 700;
+                                                color: rgba(255, 255, 255, 1);
+                                            }
