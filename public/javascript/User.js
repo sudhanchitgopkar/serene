@@ -1,31 +1,37 @@
 class User{
     holdings;
     accounts;
-    // the square of 10 - risk aversness is the threshold
-    volatilityThreshold = this.getVolatilityThreshold(7);
+    volatilityThreshold;
 
     constructor(holdings, accounts) {
         this.setHoldings(holdings);
         this.setAccounts(accounts);
+        //this.volatilityThreshold = this.getVolatilityThreshold(10);
+        this.volatilityThreshold = 0;
     }
 
     // scans the user's holdings for items with volatility above the threshhold
     // returns a list of the holdings that are deemed too volatile for the user
     getOverlyVolatileHoldings() {
-        var volatileHoldings;
+        var volatileHoldings = [];
         // iterate through holdings
         for (var holding in this.holdings) {
-            if (this.holdings[holding].volatility != -1 &&
+            const h = this.holdings[holding];
+            //console.log(h); // debug
+            //console.log("volatility: " + h.volatility); // debug
+            if (h.volatility != -1 &&
                 // * 10 since we want to compare as percents
-                this.holdings[holding].volatility * 10 >= volatilityThreshold) {
+                h.volatility * 10 >= this.volatilityThreshold) {
                 // volatile stock found
-                volatileHoltings.push(holdings[holdings]);
+                volatileHoldings.push(h);
             } // if
         } // for holding
+        //console.log("volatile! " + volatileHoldings);
         return volatileHoldings;
     } // getOverlyVolatileHoldings()
 
     // finds the threshold of volatility based on the risk averseness
+    // a stock with volatility above this percent is 'too volatile'
     getVolatilityThreshold(riskAverseness) {
         return Math.pow(11 - riskAverseness, 2)
     } // getVolatility()
@@ -43,6 +49,8 @@ class User{
      */
     setHoldings(holdings) {
         this.holdings = holdings;
+        //console.log(this.holdings); // debug
+        //console.log(this.getOverlyVolatileHoldings()); // debug
     }
     
     /**

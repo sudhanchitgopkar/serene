@@ -87,11 +87,12 @@ let usr = new User([],[]);
       usr.addHolding(currSecurity);
     } //holdings
 
-    //console.log(usr.getHoldings());
+    console.log(usr.getHoldings()); // debug
+    console.log(usr.getOverlyVolatileHoldings()); // debug
     populateBalances();
-    console.log(usr.getAccounts());
-    //console.log("IS THIS WORKING")
-    //console.log(jsonData);
+    //console.log(usr.getAccounts()); // debug
+    //console.log("IS THIS WORKING") // debug
+    //console.log(jsonData); // debug
   }
   
   function populateBalances() {
