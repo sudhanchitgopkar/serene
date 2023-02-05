@@ -8,11 +8,11 @@ class Account {
         this.setID(ID);
     }
 
-    get balance() {
+    getBalance() {
         return this.balance;
     }
 
-    get ID() {
+    getID() {
         return this.ID;
     }
 

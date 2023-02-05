@@ -68,7 +68,7 @@ let usr = new User([],[]);
 
 
   function analyze() {
-    const holdings = jsonData["Balance"]["holdings"]
+    const holdings = jsonData["Balance"]["holdings"];
     const securities = jsonData["Balance"]["securities"];
     for (var holding in holdings) {
       const id = holdings[holding]["security_id"];
@@ -87,8 +87,16 @@ let usr = new User([],[]);
       usr.addHolding(currSecurity);
     } //holdings
 
-    console.log(usr.getHoldings());
+    //console.log(usr.getHoldings());
+    populateBalances();
+    console.log(usr.getAccounts());
     //console.log("IS THIS WORKING")
     //console.log(jsonData);
   }
   
+  function populateBalances() {
+    const accounts = jsonData["Balance"]["accounts"];
+    for (var account in accounts) {
+      usr.addAccount(new Account(accounts[account]["balances"]["current"], accounts[account]["name"]));
+    } //for
+  } //populateBalances
