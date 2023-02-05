@@ -7,11 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <style>
+        @font-face {
+            font-family: Unbounded;
+            src: url("fonts/Unbounded/Unbounded-VariableFont_wght.ttf");
+        }
+        
+        @font-face {
+            font-family: Manrope;
+            src: url("fonts/Manrope/Manrope-VariableFont_wght.ttf");
+        }
+        
         .container {
             height: 100vh;
-            font-family: Manrope;
-            font-size: 20px;
-            color: white;
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-template-rows: 1fr 1fr;
@@ -25,6 +32,9 @@
         
         h4 {
             padding: 20px;
+            font-family: Manrope;
+            font-size: 36px;
+            color: white;
         }
         
         #chartContainer {
@@ -75,8 +85,12 @@
 
 <body>
     <div class="container ">
-        <div class="portfolio">Portfolio</div>
-        <div class="advice">Advice</div>
+        <div class="portfolio">
+            <h4>Portoflio</h4>
+        </div>
+        <div class="advice">
+            <h4>Advice</h4>
+        </div>
         <div class="assets">
             <h4>Assets</h4>
             <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
