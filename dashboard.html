@@ -10,6 +10,7 @@
         .container {
             height: 100vh;
             font-family: Manrope;
+            font-size: 20px;
             color: white;
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -18,19 +19,23 @@
         }
         
         .assets {
-			background-color: aqua;
             grid-column-start: 1;
             grid-column-end: 3;
         }
         
+        h4 {
+            padding: 20px;
+        }
+        
         #chartContainer {
-			height: 100%; overflow: auto; 
+            height: 60%;
+            overflow: auto;
         }
         
         #btns {
             display: inline-block;
-			margin-top: 1em;
-			margin-bottom: 1em;
+            margin-top: 1em;
+            margin-bottom: 1em;
         }
         
         #btn {
@@ -43,8 +48,8 @@
             align-items: flex-end;
             display: inline-block;
             font-size: 16px;
-			margin-left: 20px;
-	        }
+            margin-left: 20px;
+        }
     </style>
 
     <link rel="stylesheet " type="text/css " href="serene.css " />
