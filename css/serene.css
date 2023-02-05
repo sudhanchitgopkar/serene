@@ -1,0 +1,146 @@
+@font-face {
+    font-family: Unbounded;
+    src: url("fonts/Unbounded/Unbounded-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: Manrope;
+    src: url("fonts/Manrope/Manrope-VariableFont_wght.ttf");
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    -moz-box-sizing: border-box; 
+    box-sizing: border-box; 
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.fwh-slide {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-snap-align: start;    
+}
+
+body {
+    background-image: url("bg.png");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    text-align: center;
+}
+
+h1 {
+    font-family: Unbounded;
+    font-size: 72pt;
+    color: white;
+}
+
+h2 {
+    font-family: Manrope;
+    font-size: 24pt;
+    font-weight: 300;
+    color: white;
+}
+
+h2.about {
+    font-family: Unbounded;
+    font-size: 30pt;
+    font-weight: bold;
+}
+
+.arrowb {
+    display: inline-block;
+    position: absolute;
+    height: 3vw;
+    width: 3vw;
+    border: solid white;
+    border-width: 0 1px 1px 0;
+    transform: translate(-50%, 550%) rotate(45deg);
+    transition: border-width 150ms ease-in-out;
+}
+
+.arrowb:hover {
+    border-bottom-width: 4px;
+    border-right-width: 4px;
+}
+
+.arrowr {
+    display: inline-block;
+    position: absolute;
+    height: 1vw;
+    width: 1vw;
+    border: solid white;
+    border-width: 0 1px 1px 0;
+    transform: translate(-50%, 450%) rotate(-45deg);
+    transition: border-width 150ms ease-in-out;
+}
+
+.arrow:hover {
+    border-bottom-width: 2px;
+    border-right-width: 2px;
+}
+
+p.about {
+    font-family: Manrope;
+    font-size: 20pt;
+    font-weight: 300;
+    line-height: 1.5;
+    color: white;
+    width: 100vh;
+    padding: 25px;
+}
+
+.nav-container {
+    padding: 50px;
+    text-align: left;
+}
+
+li {
+    font-family: Manrope;
+    font-size: 24pt;
+    font-weight: 600;
+    color: white;
+    margin: 30px;
+    display: inline;
+}
+
+a:link {
+    text-decoration: none;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+}
+
+a:visited {
+    color: rgba(255, 255, 255, 1);
+}
+
+a:hover {
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+a:active {
+    font-weight: 700;
+    color: rgba(255, 255, 255, 1);
+}
+
+.login {
+    padding: 100px;
+}
+
+.login h2 {
+    font-size: 36px;
+    transform: translateY(250%);
+}
