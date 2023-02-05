@@ -69,7 +69,6 @@ h2.about {
     border-width: 0 1px 1px 0;
     transform: translate(-50%, 550%) rotate(45deg);
     transition: border-width 150ms ease-in-out;
-    transform
 }
 
 .arrowb:hover {
@@ -86,7 +85,6 @@ h2.about {
     border-width: 0 1px 1px 0;
     transform: translate(-50%, 450%) rotate(-45deg);
     transition: border-width 150ms ease-in-out;
-    transform
 }
 
 .arrowr:hover {
@@ -102,4 +100,48 @@ p.about {
     color: white;
     width: 100vh;
     padding: 25px;
+}
+
+.nav-container {
+    padding: 50px;
+    text-align: left;
+}
+
+li {
+    font-family: Manrope;
+    font-size: 24pt;
+    font-weight: 600;
+    color: white;
+    margin: 30px;
+    display: inline;
+}
+
+a:link {
+    text-decoration: none;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+}
+
+a:visited {
+    color: rgba(255, 255, 255, 1);
+}
+
+a:hover {
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+a:active {
+    font-weight: 700;
+    color: rgba(255, 255, 255, 1);
+}
+
+.login {
+    padding: 100px;
+}
+
+.login h2 {
+    font-size: 36px;
+    transform: translateY(250%);
 }
