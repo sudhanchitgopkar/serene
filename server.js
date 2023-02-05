@@ -31,6 +31,10 @@ app.get("/oauth", async (req, res) => {
   res.sendFile(path.join(__dirname, "oauth.html"));
 });
 
+app.get("/dashboard", async (req, res) => {
+  res.sendFile(path.join(__dirname, "dashboard.html"));
+});
+
 // Configuration for the Plaid client
 const config = new Configuration({
   basePath: PlaidEnvironments[process.env.PLAID_ENV],

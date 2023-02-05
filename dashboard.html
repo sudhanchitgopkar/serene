@@ -5,7 +5,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="serene.css"/>
-    <script src="serena.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="serene.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+    <script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="/javascript/Security.js"> </script>
+    <script type="text/javascript" src="/javascript/User.js"> </script>
+    <script type="text/javascript" src="/javascript/Account.js"> </script>
+	<script type="text/javascript" src="./javascript/setup.js"></script>
+
+
     <title>dashboard</title>
   </head>
   <body>
@@ -25,5 +35,14 @@
 	  </ul>
 	</div>
       </nav>
+
+	  <script>
+		async function cock () {
+			console.log("COCK");
+			usr2 = await getStatus();
+			console.log(usr.getholdings().at(2));
+		}
+		
+	  </script>
   </body>
 </html>

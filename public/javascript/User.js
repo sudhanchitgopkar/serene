@@ -3,9 +3,9 @@ class User{
     accounts;
     volatilityThreshold;
 
-    constructor(holdings, accounts) {
-        this.setHoldings(holdings);
-        this.setAccounts(accounts);
+    constructor() {
+        this.holdings = new Array();
+        this.accounts = new Array();
         //this.volatilityThreshold = this.getVolatilityThreshold(10);
         this.volatilityThreshold = 0;
     }
@@ -36,11 +36,11 @@ class User{
         return Math.pow(11 - riskAverseness, 2)
     } // getVolatility()
 
-    getHoldings() {
+    getholdings() {
         return this.holdings;
     }
 
-    getAccounts() {
+    get accounts() {
         return this.accounts;
     }
 

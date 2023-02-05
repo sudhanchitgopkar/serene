@@ -1,5 +1,5 @@
 jsonData = null;
-let usr = new User([],[]);
+let usr = new User();
 (async ($) => {
     // Grab a Link token to initialize Link
     const createLinkToken = async () => {
@@ -45,14 +45,8 @@ let usr = new User([],[]);
       method: "GET",
     });
     const data = await response.json();
-    //console.log(data);
-
-    jsonData = data
-    analyze();
-    //Render response data
-    const pre = document.getElementById("response");
-    pre.textContent = JSON.stringify(data, null, 2);
-    pre.style.background = "#F6F6F6";
+    populateUser(data);
+    return usr;
   };
 
   // Check whether account is connected
@@ -60,16 +54,27 @@ let usr = new User([],[]);
     const account = await fetch("/api/is_account_connected");
     const connected = await account.json();
     if (connected.status == true) {
-      getBalance();
+      await getBalance();
+      return usr;
     }
   };
-  getStatus();
 
+  function populateUser(data) {
+    populateHoldings(data);
+    populateBalances(data);
+    console.log(usr.getOverlyVolatileHoldings()); // debug
+  }
+  
+  function populateBalances(data) {
+    const accounts = data["Balance"]["accounts"];
+    for (var account in accounts) {
+      usr.addAccount(new Account(accounts[account]["balances"]["current"], accounts[account]["name"]));
+    } //for
+  } //populateBalances
 
-
-  function analyze() {
-    const holdings = jsonData["Balance"]["holdings"];
-    const securities = jsonData["Balance"]["securities"];
+  function populateHoldings(data) {
+    const holdings = data["Balance"]["holdings"];
+    const securities = data["Balance"]["securities"];
     for (var holding in holdings) {
       const id = holdings[holding]["security_id"];
       const qty = holdings[holding]["quantity"];
@@ -84,22 +89,10 @@ let usr = new User([],[]);
       } //for
 
       const currSecurity = new Security(ticker, qty, type);
-      if (currSecurity.ticker != null && currSecurity.price != undefined) {
+      if (currSecurity.ticker != null) {
         usr.addHolding(currSecurity);
       } // if
-    } //holdings
-
-    console.log(usr.getHoldings()); // debug
-    console.log(usr.getOverlyVolatileHoldings()); // debug
-    populateBalances();
-    //console.log(usr.getAccounts()); // debug
-    //console.log("IS THIS WORKING") // debug
-    //console.log(jsonData); // debug
-  }
-  
-  function populateBalances() {
-    const accounts = jsonData["Balance"]["accounts"];
-    for (var account in accounts) {
-      usr.addAccount(new Account(accounts[account]["balances"]["current"], accounts[account]["name"]));
     } //for
-  } //populateBalances
+  } //populateHoldings
+
+
