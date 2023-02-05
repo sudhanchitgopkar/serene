@@ -5,11 +5,12 @@ const Security = class {
     price;
     volatility;
 
+    // constructor
     constructor(ticker, numberOfShares, type) {
         this.ticker = ticker;
         this.numberOfShares = numberOfShares;
         this.type = type;
-        if (type === "equity") {
+        if (type === "equity" || type === "etf" || type === "mutual fund") {
             const prices = this.parsePrices(this.queryPriceHistory(ticker));
             this.price = prices[0];
             this.volatility = this.calculateVolatilty(prices);
@@ -18,8 +19,7 @@ const Security = class {
             this.price = -1;
             this.volatility = -1;
         } // if
-
-    }
+    } // constructor()
 
     // get the most recent price
     getPrice() {
