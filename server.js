@@ -58,7 +58,7 @@ const client = new PlaidApi(config);
 app.get("/api/create_link_token", async(req, res, next) => {
     const tokenResponse = await client.linkTokenCreate({
         user: { client_user_id: req.sessionID },
-        client_name: "SafeVest",
+        client_name: "Serene",
         language: "en",
         products: ["auth", "investments"],
         country_codes: ["US"],
