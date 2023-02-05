@@ -1,0 +1,1 @@
+var usr = new User();

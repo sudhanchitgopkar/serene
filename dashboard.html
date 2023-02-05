@@ -13,8 +13,12 @@
     <script type="text/javascript" src="/javascript/Security.js"> </script>
     <script type="text/javascript" src="/javascript/User.js"> </script>
     <script type="text/javascript" src="/javascript/Account.js"> </script>
-	<script type="text/javascript" src="./javascript/setup.js"></script>
+	<script type="text/javascript" src="/javascript/test.js"> </script>
 
+	<script>
+		var myObject = JSON.parse(localStorage.getItem('exampleObject'));
+		console.log(myObject);
+	</script>
 
     <title>dashboard</title>
   </head>
@@ -35,14 +39,5 @@
 	  </ul>
 	</div>
       </nav>
-
-	  <script>
-		async function cock () {
-			console.log("COCK");
-			usr2 = await getStatus();
-			console.log(usr.getholdings().at(2));
-		}
-		
-	  </script>
   </body>
 </html>

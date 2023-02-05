@@ -1,5 +1,6 @@
 jsonData = null;
-let usr = new User();
+usr = new User();
+flag = false;
 (async ($) => {
     // Grab a Link token to initialize Link
     const createLinkToken = async () => {
@@ -63,6 +64,9 @@ let usr = new User();
     populateHoldings(data);
     populateBalances(data);
     console.log(usr.getOverlyVolatileHoldings()); // debug
+    console.log(usr);
+    localStorage.setItem('exampleObject', JSON.stringify(usr));
+    window.location.href = "/dashboard"
   }
   
   function populateBalances(data) {
@@ -93,6 +97,7 @@ let usr = new User();
         usr.addHolding(currSecurity);
       } // if
     } //for
+    //window.location.href = "/dashboard"
   } //populateHoldings
 
 
